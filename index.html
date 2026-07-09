@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>颱風班機延誤・旅平險理賠說明</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15282D;
+  --green:#00614B;
+  --green-tint:#EAF3F0;
+  --amber:#9A5B00;
+  --amber-tint:#FBF3E4;
+  --paper:#FFFFFF;
+  --bg:#F3F4F2;
+  --line:#DDE2DF;
+  --muted:#5C6B67;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:"Noto Sans TC",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:16px;
+}
+.num{
+  font-family:"Noto Serif TC",serif;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum";
+}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px 64px;}
+
+/* Header */
+header{
+  background:var(--green);
+  color:#fff;
+  padding:40px 20px 32px;
+}
+header .inner{max-width:640px;margin:0 auto;}
+.eyebrow{
+  font-size:13px;
+  letter-spacing:.35em;
+  opacity:.85;
+  margin-bottom:14px;
+}
+h1{
+  font-family:"Noto Serif TC",serif;
+  font-weight:900;
+  font-size:30px;
+  line-height:1.35;
+  margin-bottom:12px;
+}
+header p{font-size:14.5px;opacity:.92;max-width:34em;}
+.scope{
+  display:inline-block;
+  margin-top:16px;
+  border:1px solid rgba(255,255,255,.45);
+  padding:4px 14px;
+  font-size:13.5px;
+  letter-spacing:.08em;
+}
+
+/* Section */
+section{margin-top:44px;}
+.sec-label{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:10px;
+  margin-bottom:20px;
+}
+.sec-label .no{
+  font-family:"Noto Serif TC",serif;
+  font-weight:900;
+  font-size:15px;
+  color:var(--green);
+  letter-spacing:.1em;
+}
+.sec-label h2{
+  font-family:"Noto Serif TC",serif;
+  font-weight:700;
+  font-size:21px;
+}
+.sec-note{font-size:13.5px;color:var(--muted);margin:-12px 0 18px;}
+
+/* Card */
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:22px 22px;
+}
+.card + .card{margin-top:14px;}
+
+/* Delay table */
+table{width:100%;border-collapse:collapse;font-size:15px;}
+th,td{padding:12px 8px;text-align:center;border-bottom:1px solid var(--line);}
+thead th{
+  font-size:13px;
+  letter-spacing:.15em;
+  color:var(--muted);
+  font-weight:500;
+  border-bottom:2px solid var(--ink);
+}
+tbody th{
+  text-align:left;
+  font-weight:700;
+  font-size:15px;
+}
+td .num{font-size:20px;font-weight:700;color:var(--green);}
+td small{display:block;font-size:12px;color:var(--muted);}
+
+.calc{
+  background:var(--green-tint);
+  border:1px solid var(--green);
+  padding:20px 22px;
+  margin-top:14px;
+}
+.calc .t{
+  font-size:13px;
+  letter-spacing:.25em;
+  color:var(--green);
+  margin-bottom:8px;
+}
+.calc .formula{font-size:15px;margin-bottom:6px;}
+.calc .total{
+  font-family:"Noto Serif TC",serif;
+  font-weight:900;
+  font-size:34px;
+  color:var(--green);
+  font-variant-numeric:tabular-nums;
+}
+.calc .total small{font-size:15px;font-weight:700;margin-right:6px;}
+
+/* Amber notice */
+.notice{
+  background:var(--amber-tint);
+  border-left:4px solid var(--amber);
+  padding:16px 18px;
+  font-size:14.5px;
+  margin-top:14px;
+}
+.notice strong{color:var(--amber);}
+
+/* Confirm items */
+.confirm{display:grid;gap:14px;}
+.confirm .card h3{
+  font-family:"Noto Serif TC",serif;
+  font-size:17px;
+  margin-bottom:8px;
+}
+.confirm .card p{font-size:14.5px;color:var(--ink);}
+.tag{
+  display:inline-block;
+  font-size:12px;
+  letter-spacing:.12em;
+  padding:2px 10px;
+  margin-bottom:10px;
+}
+.tag.a{background:var(--green-tint);color:var(--green);}
+.tag.b{background:var(--amber-tint);color:var(--amber);}
+
+/* Checklist */
+.check{list-style:none;counter-reset:doc;}
+.check li{
+  counter-increment:doc;
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:16px 18px 16px 58px;
+  position:relative;
+  margin-bottom:10px;
+}
+.check li::before{
+  content:counter(doc,decimal-leading-zero);
+  position:absolute;
+  left:18px;
+  top:17px;
+  font-family:"Noto Serif TC",serif;
+  font-weight:900;
+  font-size:16px;
+  color:var(--green);
+}
+.check li b{display:block;font-size:15.5px;margin-bottom:2px;}
+.check li span{font-size:13.5px;color:var(--muted);display:block;}
+.check li em{font-style:normal;color:var(--amber);font-weight:700;}
+
+/* Footer */
+footer{
+  margin-top:52px;
+  border-top:2px solid var(--ink);
+  padding-top:20px;
+  font-size:14px;
+  color:var(--muted);
+}
+footer b{color:var(--ink);}
+
+@media (max-width:420px){
+  h1{font-size:26px;}
+  th,td{padding:10px 4px;}
+  td .num{font-size:18px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <div class="eyebrow">旅 平 險 理 賠 說 明</div>
+    <h1>颱風影響回程班機<br>保單理賠這樣申請</h1>
+    <p>若您 7/10、7/11 回台班機因颱風延誤或取消、需在海外多留幾晚，以下整理可申請的理賠項目與需要準備的文件。</p>
+    <span class="scope">適用對象：7/10－7/11 回程受颱風影響之旅客</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 理賠一 -->
+<section>
+  <div class="sec-label">
+    <span class="no">理賠一</span>
+    <h2>班機延誤</h2>
+  </div>
+  <p class="sec-note">以「下一班實際搭乘回台航班」與原航班的時間差計算。實際金額依您投保的方案為準。</p>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">延誤時數</th>
+          <th>大人</th>
+          <th>小孩</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>超過 4 小時</th>
+          <td><span class="num">6,000</span><small>元／人</small></td>
+          <td><span class="num">3,000</span><small>元／人</small></td>
+        </tr>
+        <tr>
+          <th>超過 8 小時</th>
+          <td><span class="num">12,000</span><small>元／人</small></td>
+          <td><span class="num">6,000</span><small>元／人</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="calc">
+    <div class="t">試 算 範 例</div>
+    <div class="formula">若當天無法回台，延誤幾乎確定超過 8 小時。<br>以 2 位大人＋2 位小孩為例：</div>
+    <div class="formula num">12,000 × 2 ＋ 6,000 × 2</div>
+    <div class="total"><small>合計</small>36,000<small style="margin-left:6px">元</small></div>
+  </div>
+</section>
+
+<!-- 理賠二 -->
+<section>
+  <div class="sec-label">
+    <span class="no">理賠二</span>
+    <h2>旅程更改</h2>
+  </div>
+  <p class="sec-note">因氣候因素導致行程變動，可啟動本條款。</p>
+
+  <div class="card">
+    <p style="font-size:15px">理賠<b>因延誤而額外產生的住宿費＋交通費</b>。</p>
+    <p style="font-size:15px;margin-top:8px">依現行條款規範，本項理賠上限為<b>每人每日 2,000 元</b>。</p>
+  </div>
+
+  <div class="notice">
+    <strong>額度提醒：</strong>海外住宿費用通常會超過此上限，這部分相對不足。回台後我們會再一併確認您<strong>刷機票的信用卡</strong>所附的班機延誤／不便險額度，看能不能補上缺口。
+  </div>
+</section>
+
+<!-- 要先確認 -->
+<section>
+  <div class="sec-label">
+    <span class="no">請先確認</span>
+    <h2>航空公司怎麼處理您的班機</h2>
+  </div>
+  <p class="sec-note">這會影響後續理賠的申請方式，麻煩留意航空公司通知。</p>
+
+  <div class="confirm">
+    <div class="card">
+      <span class="tag a">狀況 A</span>
+      <h3>航空公司安排替代航班</h3>
+      <p>請保留改班後的新登機證與航空公司通知，依替代航班時間計算延誤時數。</p>
+    </div>
+    <div class="card">
+      <span class="tag b">狀況 B</span>
+      <h3>航班直接取消，需自行購買新機票</h3>
+      <p>請保留取消證明與新機票購買紀錄。這種情況下，我們有機會再爭取額外的協助，請務必先跟我聯繫。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 文件清單 -->
+<section>
+  <div class="sec-label">
+    <span class="no">申請文件</span>
+    <h2>請準備以下 9 項資料</h2>
+  </div>
+  <p class="sec-note">標示「可拍照」的項目，用手機拍給我即可。</p>
+
+  <ol class="check">
+    <li>
+      <b>延誤證明或取消證明</b>
+      <span>向航空公司索取，內容需<em>載明因氣候因素</em>。</span>
+    </li>
+    <li>
+      <b>原本航班的資料</b>
+      <span>原訂班機的訂位紀錄或行程單。</span>
+    </li>
+    <li>
+      <b>每一位的新登機證</b>
+      <span>後來實際搭乘航班，全員的登機證都要保留。</span>
+    </li>
+    <li>
+      <b>全員護照</b>
+      <span>可拍照傳給我。</span>
+    </li>
+    <li>
+      <b>理賠入帳帳戶的存摺封面</b>
+      <span>可拍照傳給我。18 歲以下小孩的理賠金，可以匯入大人的帳戶。</span>
+    </li>
+    <li>
+      <b>戶口名簿</b>
+      <span>可拍照傳給我，主要用來證明親子關係。</span>
+    </li>
+    <li>
+      <b>住宿收據</b>
+      <span>直接向飯店訂房需<em>正本收據</em>。建議改用 Agoda 等訂房平台訂購，<em>訂購畫面截圖即可</em>，省事很多。</span>
+    </li>
+    <li>
+      <b>飯店住宿證明</b>
+      <span>請飯店開立，並將<em>全員護照英文姓名</em>都登載在證明上。</span>
+    </li>
+    <li>
+      <b>簽署理賠文件</b>
+      <span>回台後我們再約時間，當面完成理賠申請文件簽署。</span>
+    </li>
+  </ol>
+</section>
+
+<!-- 信用卡補充 -->
+<section>
+  <div class="sec-label">
+    <span class="no">補充</span>
+    <h2>信用卡不便險</h2>
+  </div>
+  <div class="card">
+    <p style="font-size:15px">因旅程更改的住宿＋交通理賠額度有限，請告訴我您<b>購買機票時刷的是哪一張信用卡</b>，我會幫您查詢該卡附贈的班機延誤險額度與內容。</p>
+  </div>
+  <div class="notice">
+    <strong>注意：</strong>若機票是用<strong>哩程兌換</strong>，基本上不適用信用卡附贈的不便險。
+  </div>
+</section>
+
+<footer>
+  <p><b>有任何問題，方便的時間跟我說，我再打給您說明討論。</b></p>
+  <p style="margin-top:8px">富邦人壽　鐘明通訊處 TC813</p>
+  <p style="margin-top:4px">本頁為理賠流程說明參考，實際理賠金額與條件依保單條款及投保方案為準。</p>
+</footer>
+
+</div>
+</body>
+</html>
